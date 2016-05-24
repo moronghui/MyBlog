@@ -1,0 +1,14 @@
+body{ background-color: rgb(188,211,229); }
+/*头部*/
+.comWidth{
+	width:1000px; 
+	margin:0px auto;
+}
+.header{ margin-top: 30px; padding-left: 80px;}
+.header .info img{ width: 100px; height: 100px; margin-bottom: 10px; }
+.header .info p{ color: #fff; font-weight: bold; font-size: 28px; margin-bottom: 20px}
+.header .nav li{ list-style-type: none; float: left; }
+.header .nav{overflow: hidden;;}
+.header .nav li a{font-weight: bold; color: #000; font-size: 18px; margin-right: 10px; display: inline-block;; }
+/*content*/
+.content{ background-color: #fff; margin-top: 30px;}
