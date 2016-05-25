@@ -11,7 +11,7 @@ a:hover{ color: #f00; }
 .header{width: 870px; margin: 30px auto; padding-left: 80px; overflow: hidden; padding-right: 50px;}
 .header .info img{ width: 100px; height: 100px; margin-bottom: 10px; }
 .header .info a{ color: #fff; font-weight: bold; font-size: 28px; margin-bottom: 20px}
-.header .info a:hover{ color: #000；}
+.header .info a:hover{ text-decoration: underline;}
 .header .nav li{ list-style-type: none; float: left; }
 .header .nav{overflow: hidden;;}
 .header .nav li a{font-weight: bold; color: #000; font-size: 18px; margin-right: 10px; display: inline-block;; }
@@ -20,7 +20,7 @@ a:hover{ color: #f00; }
 .content{ margin-top: 30px; margin-bottom: 30px; overflow: hidden;}
 .content .c_left{ width: 240px; margin-right: 10px; }
 /*个人资料*/
-.content .c_left .title{overflow: hidden; font-size: 14px; line-height: 30px; padding-left: 10px; padding-right: 10px;}
+.content .title{overflow: hidden; font-size: 14px; line-height: 30px; padding-left: 10px; padding-right: 10px;}
 .content .c_left .data .img{margin:10px 20px; border: 1px solid #ccc; height: 150px; width: 198px;}
 .content .c_left .data .img img{height: 150px; width: 198px;}
 .content .c_left .data .name{ text-align: center; line-height: 30px; font-size: 14px; font-weight: bold; color: #000; }
@@ -33,3 +33,13 @@ a:hover{ color: #f00; }
 /*分类*/
 .content .c_left .category ul{padding-left: 20px;}
 .content .c_left .category ul li{ margin-bottom: 5px;  list-style-type:disc; }
+/*博文*/
+.content .c_right .item{ margin-top: 10px; border-bottom: 1px dotted #ccc; margin-left: 20px; padding-bottom: 20px; }
+.content .c_right .item a{ color:  rgb(62,115,160); margin-right: 10px;}
+.content .c_right .item .title{ font-size: 22px; }
+.content .c_right .item p{ margin-left: 25px; }
+.content .c_right .item .lable,.cate{ font-size: 14px; color: rgb(62,115,160); }
+.content .c_right .item .article{ margin: 20px 20px 20px 25px; font-size: 14px; }
+.content .c_right .item .flooter{ margin-left: 10px; padding-right: 20px; }
+.content .c_right .item .flooter .num{ margin-left: -10px; }
+.content .c_right a:hover{ text-decoration: underline; }

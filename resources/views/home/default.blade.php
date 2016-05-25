@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="博客">
+<link rel="stylesheet" type="text/css" href="{{ asset('/home/css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/home/css/reset.css')}}">
+<title>博客</title>
+
+<body>
+<div class="comWidth header">
+	<div class="info">
+		<img src="{{ asset('/uploads/default.jpg')}}" alt="头像">
+		<p><a href="#">{{ $user->name}}的博客</a></p>
+	</div>
+	<div class="nav right" >
+		<ul>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">博文目录</a></li>
+			<li><a href="#">发博文</a></li>
+			<li><a href="#">个人中心</a></li>
+		</ul>
+	</div>
+</div><!-- header结束 -->
+	@yield('content');
+</body>
+</html>

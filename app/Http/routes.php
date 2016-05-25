@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', 'home\HomeController@index');
 
-Route::get('home', 'HomeController@index');
+
+Route::group(['middleware' =>'auth'], function()
+{
+    Route::get('/', 'home\HomeController@index');
+    Route::get('home', 'home\HomeController@index');
+});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
