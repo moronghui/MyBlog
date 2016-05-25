@@ -17,6 +17,10 @@ Route::group(['middleware' =>'auth'], function()
 {
     Route::get('/', 'home\HomeController@index');
     Route::get('home', 'home\HomeController@index');
+    Route::get('/profile', 'home\HomeController@profile');
+    Route::post('/upform', 'home\HomeController@face');
+    Route::post('/updata', 'home\HomeController@updata');
+    Route::get('/lists', 'home\HomeController@lists');
 });
 
 Route::controllers([

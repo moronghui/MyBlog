@@ -12,14 +12,14 @@
 <div class="comWidth header">
 	<div class="info">
 		<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>" alt="头像">
-		<p><a href="#">{{ $user->name}}的博客</a></p>
+		<p><a href="{{ asset('/')}}">{{ $user->name}}的博客</a></p>
 	</div>
 	<div class="nav right" >
 		<ul>
-			<li><a href="#">首页</a></li>
-			<li><a href="#">博文目录</a></li>
-			<li><a href="#">发博文</a></li>
-			<li><a href="#">个人中心</a></li>
+			<li><a href="{{ asset('/')}}">首页</a></li>
+			<li><a href="{{ asset('/lists')}}">博文目录</a></li>
+			<li><a href="{{ asset('/blog')}}">发博文</a></li>
+			<li><a href="{{ asset('/personal')}}">个人中心</a></li>
 		</ul>
 	</div>
 </div><!-- header结束 -->

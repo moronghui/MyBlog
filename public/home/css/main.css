@@ -45,3 +45,16 @@ a:hover{ color: #f00; }
 .content .c_right .item .flooter{ margin-left: 10px;}
 .content .c_right .item .flooter .num{ margin-left: -10px; }
 .content .c_right a:hover{ text-decoration: underline; }
+/*修改个人资料*/
+.profile{ margin-top: 30px; margin-bottom: 30px; overflow: hidden; background-color: #fff;padding-top: 30px; padding-bottom: 30px;}
+.profile img{ margin-bottom: 20px; width: 150px; height: 150px; }
+.profile label{ font-size: 18px; font-weight: bold; margin-right: 20px; }
+.profile tr{ display: block; margin-bottom: 10px; }
+.profile input{ border: 1px solid #ccc; padding: 5px 20px; }
+.profile .label{ width: 100px; text-align: right; }
+.profile .comfirm{ padding-left: 70px; width: 150px; font-size: 16px; display: block;}
+/*博文目录*/
+.content .c_right .blog_item{ overflow: hidden; font-size: 14px; border-bottom: 1px dotted #ccc; margin: 10px 20px; padding:10px; }
+.content .c_right .blog_item .title{ color:#436eee; font-size: 16px;}
+.content .c_right .blog_item .title:hover{ text-decoration: underline; }
+.content .c_right .blog_item{}

@@ -10,6 +10,9 @@ use App\Comment;
 use App\Blog;
 use Auth;
 use DB;
+use Input;
+use Hash;
+use Redirect;
 class HomeController extends Controller {
 
 	/**
@@ -52,24 +55,86 @@ class HomeController extends Controller {
 		return view('home.index',$data);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+	public function profile(){
+		//获取用户详细信息
+		$user=User::find(Auth::id());
+		return view('home.profile',['user'=>$user]);
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * 修改个人资料
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function updata(Request $request)
 	{
 		//
+		//获取用户详细信息
+		$user=User::find(Auth::id());
+		$name=Input::get('username');
+		$word=Input::get('word');
+		$sex=Input::get('sex');
+		$password=Input::get('password');
+		if ($password!=null) {
+			$user->password=Hash::make($password);
+		}
+		$user->name=$name;
+		$user->word=$word;
+		$user->sex=$sex;
+		$user->save();
+
+		return view('home.profile',['user'=>$user]);
+	}
+
+	/**
+	 * 处理上传头像
+	 *
+	 * @return Response
+	 */
+	public function face(Request $request)
+	{
+		//
+		$face=Input::file("face");
+		if (is_file($face)) {
+
+			$clientName = $face->getClientOriginalName();
+			$realpath=$face->getRealPath();
+			$mimeType=$face->getClientOriginalExtension();;
+			$newName=md5(date('ymdhis').$clientName).'.'.$mimeType;
+			$path = $face->move(rtrim(app_path(),'\app').'\public\uploads',$newName);
+			$user=User::find(Auth::id());
+			$user->face=$newName;
+			$user->save();
+		}
+		return redirect('/profile');
+	}
+
+	/**
+	 * 博文目录
+	 *
+	 * @return Response
+	 */
+	public function lists()
+	{
+		//
+		$user=User::find(Auth::id());
+		$category=DB::table('categories as c')
+		->leftJoin('blogs as b','c.id','=','b.category')
+		->select('c.*','b.id as bid')
+		->where('c.user_id','=',Auth::id())
+		->get();
+		$blog=DB::table('blogs as b')
+		->leftJoin('categories as c','b.category','=','c.id')
+		->leftJoin('comments as com','b.id','=','com.blog_id')
+		->select('b.*','c.name','com.id as comid')
+		->where('b.user_id','=',Auth::id())
+		->get();
+		$data=[
+			'user'=>$user,
+			'category'=>$category,
+			'blog'=>$blog,
+		];
+		return view('home.lists',$data);
 	}
 
 	/**

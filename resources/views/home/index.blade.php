@@ -6,7 +6,7 @@
 		<div class="data">
 			<div class="title">
 				<span class="left">个人资料</span>
-				<span class="right"><a href="#">[管理]</a></span>
+				<span class="right"><a href="{{ asset('/profile')}}">[管理]</a></span>
 			</div>
 			<div class="img">
 				<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>" alt="头像">
