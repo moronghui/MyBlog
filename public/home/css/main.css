@@ -19,27 +19,29 @@ a:hover{ color: #f00; }
 /*content*/
 .content{ margin-top: 30px; margin-bottom: 30px; overflow: hidden;}
 .content .c_left{ width: 240px; margin-right: 10px; }
+.content .c_right{ width: 750px; background-color: #fff; padding-bottom: 30px;}
 /*个人资料*/
 .content .title{overflow: hidden; font-size: 14px; line-height: 30px; padding-left: 10px; padding-right: 10px;}
 .content .c_left .data .img{margin:10px 20px; border: 1px solid #ccc; height: 150px; width: 198px;}
 .content .c_left .data .img img{height: 150px; width: 198px;}
 .content .c_left .data .name{ text-align: center; line-height: 30px; font-size: 14px; font-weight: bold; color: #000; }
-.content .c_right{ width: 750px; background-color: #fff;  }
+
 /*评论*/
 .content .c_left .comment,.data,.category{ margin-bottom: 10px;background-color: #fff;  padding-bottom: 15px;}
 .content .c_left .comment .item{ padding-left: 20px; border-bottom: 1px dotted #ccc; padding-right: 15px;  margin-bottom: 10px;}
 .content .c_left .comment .item .user,.c_content{ overflow: hidden; margin-bottom: 10px; }
+.content .c_left .comment .item .user{ font-size: 14px; }
 .content .c_left .comment .more{ overflow: hidden; padding-right: 15px; margin-top: 10px; }
 /*分类*/
 .content .c_left .category ul{padding-left: 20px;}
 .content .c_left .category ul li{ margin-bottom: 5px;  list-style-type:disc; }
 /*博文*/
-.content .c_right .item{ margin-top: 10px; border-bottom: 1px dotted #ccc; margin-left: 20px; padding-bottom: 20px; }
+.content .c_right .item{ margin-top: 10px; margin-right: 20px; border-bottom: 1px dotted #ccc; margin-left: 20px; padding-bottom: 20px; }
 .content .c_right .item a{ color:  rgb(62,115,160); margin-right: 10px;}
 .content .c_right .item .title{ font-size: 22px; }
 .content .c_right .item p{ margin-left: 25px; }
 .content .c_right .item .lable,.cate{ font-size: 14px; color: rgb(62,115,160); }
-.content .c_right .item .article{ margin: 20px 20px 20px 25px; font-size: 14px; }
-.content .c_right .item .flooter{ margin-left: 10px; padding-right: 20px; }
+.content .c_right .item .article{ margin: 20px 10px 20px 25px; font-size: 14px; }
+.content .c_right .item .flooter{ margin-left: 10px;}
 .content .c_right .item .flooter .num{ margin-left: -10px; }
 .content .c_right a:hover{ text-decoration: underline; }

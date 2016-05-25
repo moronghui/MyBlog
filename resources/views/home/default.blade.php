@@ -11,7 +11,7 @@
 <body>
 <div class="comWidth header">
 	<div class="info">
-		<img src="{{ asset('/uploads/default.jpg')}}" alt="头像">
+		<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>" alt="头像">
 		<p><a href="#">{{ $user->name}}的博客</a></p>
 	</div>
 	<div class="nav right" >
