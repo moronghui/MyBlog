@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 use App\User;
 use App\Category;
 use App\Comment;
@@ -138,36 +138,57 @@ class HomeController extends Controller {
 	}
 
 	/**
-	 * Display the specified resource.
+	 * 发表博文页面
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * 
 	 */
-	public function show($id)
+	public function blog()
 	{
 		//
+		$category=Category::where('user_id','=',Auth::id())->get();
+		$user=User::find(Auth::id());
+		$data=[
+			'user'=>$user,
+			'category'=>$category,
+		];
+		return view('home.blog',$data);
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
+	 * 发表博文
 	 */
-	public function edit($id)
+	public function deliverBlog(Request $request)
 	{
 		//
+	/*	$this->validate($request,[
+			'title'=>'required',
+			'content'=>'required',
+			]);*/
+		$title=Input::get('title');
+		$label=Input::get('label');
+		$user_id=Auth::id();
+		$category=Input::get('category');
+		$content=Input::get('content');
+		$blog=new Blog;
+		$blog->title=$title;
+		$blog->label=$label;
+		$blog->content=$content;
+		$blog->user_id=$user_id;
+		$blog->category=$category;
+		$blog->save();
+		return redirect('/')->withInput();
 	}
 
 	/**
-	 * Update the specified resource in storage.
+	 *个人中心
 	 *
-	 * @param  int  $id
-	 * @return Response
 	 */
-	public function update($id)
+	public function personal(Request $request)
 	{
 		//
+		//$user= Request::input('user');
+		$input=Request::all();
+		return view('home.personal',$input);
 	}
 
 	/**

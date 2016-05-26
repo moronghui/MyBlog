@@ -58,3 +58,14 @@ a:hover{ color: #f00; }
 .content .c_right .blog_item .title{ color:#436eee; font-size: 16px;}
 .content .c_right .blog_item .title:hover{ text-decoration: underline; }
 .content .c_right .blog_item{}
+/*发博文*/
+.blog{ background-color: #fff; padding: 0px 20px; padding-bottom: 40px; }
+.blog .head{overflow: hidden; font-size: 18px; font-weight: bold;  line-height: 30px; margin-bottom: 30px;}
+.blog  label{ font-size: 16px;}
+.blog .title{ font-size: 14px; border: 1px solid #ccc; width: 500px; height: 20px; padding: 5px 10px;  }
+.blog .form{ padding-left: 145px; }
+.blog .cate{ border: 1px solid #ccc; padding: 3px; }
+.blog .content{ font-size: 14px; padding: 30px 20px; border: 1px solid #ccc; width: 700px; height: 300px; overflow-y: scroll; }
+.blog .label{ font-size: 14px; border: 1px solid #ccc; width: 300px; height: 20px; padding: 5px 10px; }
+.blog .div{ margin-top: -10px; text-align: center; width: 700px; }
+.blog .submit{ height: 30px; width: 200px; font-size: 18px; text-align: center; box-shadow: 2px 2px 0px #ccc; border: 1px solid #ccc;border-radius: 5px; }

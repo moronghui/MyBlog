@@ -61,25 +61,20 @@
 	</div>
 	<div class="c_right right">
 		<div class="title">
-			<span class="left">博文</span>
-			<span class="right"><a href="{{ asset('/lists')}}">[管理]</a></span>
+			<span class="left">全部博文（{{ count($blog)}}）</span>
 		</div>
 		@if(count($blog)==0)
 			<p style="margin-left:25px;">您还没发过博文！</p>
 		@else
 			@foreach($blog as $bg)
-				<div class="item">
-					<a href="#" class="title">{{ $bg->title}}</a><span>({{ $bg->created_at}})</span><a href="#">[管理]</a><a href="#">[删除]</a>
-					<p>标签：<span class="lable">{{ $bg->label}}</span> &nbsp;&nbsp;分类：<span class="cate">{{ $bg->name}}</span></p>
-					<article class="article">
-						{{ $bg->content}}
-					</article>
-					<div class="flooter">
-						<a href="#">评论</a><span class="num">({{ count($bg->comid)}})</span><a href="#" class="right">查看正文</a>
-					</div>
-				</div> 
-			@endforeach
-		@endif
+			<div class="blog_item">
+				<div class="left"><a href="#" class="title">{{ $bg->title}}</a></div>
+				<div class="right">
+					<span>{{ $bg->created_at}}</span><a href="#">[编辑]</a><a href="#">[更改分类]</a><a href="#">[删除]</a>
+				</div>
+			</div>
+		@endforeach
+		@endif		
 		
 	</div>
 </div>

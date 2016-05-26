@@ -21,6 +21,10 @@ Route::group(['middleware' =>'auth'], function()
     Route::post('/upform', 'home\HomeController@face');
     Route::post('/updata', 'home\HomeController@updata');
     Route::get('/lists', 'home\HomeController@lists');
+    Route::get('/blog', 'home\HomeController@blog');
+    Route::post('/deliverBlog', 'home\HomeController@deliverBlog');
+    Route::get('/personal', 'home\HomeController@personal');
+
 });
 
 Route::controllers([
