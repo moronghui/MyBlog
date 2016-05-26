@@ -25,7 +25,8 @@ a:hover{ color: #f00; }
 .content .c_left .data .img{margin:10px 20px; border: 1px solid #ccc; height: 150px; width: 198px;}
 .content .c_left .data .img img{height: 150px; width: 198px;}
 .content .c_left .data .name{ text-align: center; line-height: 30px; font-size: 14px; font-weight: bold; color: #000; }
-
+.content .c_left .data .info{ margin-right: 20px; line-height: 30px; font-size: 14px; margin-left: 20px; }
+.content .c_left .data .info label{ font-size: 16px; font-weight: bold; }
 /*评论*/
 .content .c_left .comment,.data,.category{ margin-bottom: 10px;background-color: #fff;  padding-bottom: 15px;}
 .content .c_left .comment .item{ padding-left: 20px; border-bottom: 1px dotted #ccc; padding-right: 15px;  margin-bottom: 10px;}
@@ -69,3 +70,20 @@ a:hover{ color: #f00; }
 .blog .label{ font-size: 14px; border: 1px solid #ccc; width: 300px; height: 20px; padding: 5px 10px; }
 .blog .div{ margin-top: -10px; text-align: center; width: 700px; }
 .blog .submit{ height: 30px; width: 200px; font-size: 18px; text-align: center; box-shadow: 2px 2px 0px #ccc; border: 1px solid #ccc;border-radius: 5px; }
+/*评论详情*/
+.comment_detail,.cate_detail{ background-color: #fff; padding:5px 30px; padding-bottom: 30px; }
+.comment_detail .title,.cate_detail .title{font-size: 18px; font-weight: bold; line-height: 30px; padding:5px 10px 30px;}
+.comment_detail .c_item{ overflow: hidden; font-size: 14px; border-bottom: 1px dotted #ccc; padding-bottom: 20px;}
+.comment_detail .c_item .face{ margin-right: 10px; width: 50px; height: 50px; }
+.comment_detail .c_item .item_r{ width: 880px; overflow: hidden; }
+.comment_detail .c_item .item_r .username{ margin-bottom: 10px; font-size: 18px; font-weight: bold; color: #8470ff; display: inline-block; margin-right: 10px; }
+.comment_detail .c_item .item_r .username:hover{ text-decoration: underline; }
+.comment_detail .c_item .delete:hover{color:  rgb(62,115,160);}
+.comment_detail .c_item .item_r .contents{ clear: both; padding-left: 10px; margin:10px;  }
+.comment_detail .c_item .item_r .which{ font-weight: bold;color: #4876ff; }
+.comment_detail .c_item .item_r .which:hover{ text-decoration: underline; }
+/*分类管理*/
+.cate_detail li{ font-size: 14px; padding: 10px 30px; border-bottom: 1px dotted #ccc; display: block;overflow: hidden;}
+.cate_detail li a:hover{color:  rgb(62,115,160); text-decoration: underline;}
+.cate_detail .add{ padding: 10px 30px; }
+.cate_detail .add .cate{ border: 1px solid #ccc; padding: 5px 10px; }

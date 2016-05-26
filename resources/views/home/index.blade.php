@@ -17,7 +17,7 @@
 		<div class="comment">
 			<div class="title">
 				<span class="left">评论</span>
-				<span class="right"><a href="#">[管理]</a></span>
+				<span class="right"><a href="{{ asset('/comment')}}">[管理]</a></span>
 			</div>
 			@if(count($comment)==0)
 				<p style="margin-left:25px;">暂时没有评论！</p>
@@ -38,14 +38,14 @@
 			@endif
 			
 			<div class="more">
-					<a href="#" class="right">更多>></a>
+					<a href="{{ asset('/comment')}}" class="right">更多>></a>
 			</div>
 		</div>
 		<!-- 分类 -->
 		<div class="category">
 			<div class="title">
 				<span class="left">分类</span>
-				<span class="right"><a href="#">[管理]</a></span>
+				<span class="right"><a href="{{ asset('/category')}}">[管理]</a></span>
 			</div>
 			@if(count($category)==0)
 				<p style="margin-left:25px;">您还没添加分类！</p>

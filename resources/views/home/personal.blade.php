@@ -12,6 +12,16 @@
 				<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>" alt="头像">
 			</div>
 			<div class="name">{{ $user->name}}</div>
+			<div class="info">
+				<label>性别：</label><span>{{ $user->sex}}</span>
+			</div>
+			<div class="info">
+				<label>邮箱：</label><span>{{ $user->email}}</span>
+			</div>
+			<div class="info">
+				<label>签名：</label><br><p>{{ $user->word}}</p>
+			</div>
+			
 		</div>
 		<!-- 评论 -->
 		<div class="comment">

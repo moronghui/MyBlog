@@ -186,20 +186,114 @@ class HomeController extends Controller {
 	public function personal(Request $request)
 	{
 		//
-		//$user= Request::input('user');
-		$input=Request::all();
-		return view('home.personal',$input);
+		//获取用户详细信息
+		$user=User::find(Auth::id());
+		//获取分类
+		//$category=Category::where('user_id','=',Auth::id())->get();
+		$category=DB::table('categories as c')
+		->leftJoin('blogs as b','c.id','=','b.category')
+		->select('c.*','b.id as bid')
+		->where('c.user_id','=',Auth::id())
+		->get();
+		//获取评论
+		$comment=DB::table('comments as c')
+		->leftJoin('users as u','c.user_id','=','u.id')
+		->select('c.content','u.name','c.created_at')
+		->where('blog_user_id','=',Auth::id())
+		->take(10)
+		->get();
+		//获取博文
+		$blog=DB::table('blogs as b')
+		->leftJoin('categories as c','b.category','=','c.id')
+		->select('b.*','c.name')
+		->where('b.user_id','=',Auth::id())
+		->get();
+		//$blog=Blog::where('user_id','=',Auth::id())->get();
+		$data=[
+			'user'=>$user,
+			'category'=>$category,
+			'comment'=>$comment,
+			'blog'=>$blog,
+		];
+		return view('home.personal',$data);
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * 评论
 	 *
-	 * @param  int  $id
-	 * @return Response
 	 */
-	public function destroy($id)
+	public function comment()
 	{
 		//
+		$user=User::find(Auth::id());
+		//获取评论
+		$comment=DB::table('comments as c')
+		->leftJoin('users as u','c.user_id','=','u.id')
+		->select('c.content','u.name','c.created_at')
+		->where('blog_user_id','=',Auth::id())
+		->take(10)
+		->get();
+		$data=[
+			'user'=>$user,
+			'comment'=>$comment,
+		];
+		return view('home.comment',$data);
 	}
+
+	/**
+	 * 分类管理
+	 *
+	 */
+	public function category(){
+
+		$user=User::find(Auth::id());
+		//获取分类
+		//$category=Category::where('user_id','=',Auth::id())->get();
+		$category=DB::table('categories as c')
+		->leftJoin('blogs as b','c.id','=','b.category')
+		->select('c.*','b.id as bid')
+		->where('c.user_id','=',Auth::id())
+		->get();
+		//获取博文
+		$blog=DB::table('blogs as b')
+		->leftJoin('categories as c','b.category','=','c.id')
+		->select('b.*','c.name')
+		->where('b.user_id','=',Auth::id())
+		->get();
+		$data=[
+			'user'=>$user,
+			'category'=>$category,
+			'blog'=>$blog,
+		];
+		return view('home.category',$data);
+	}
+
+	/**
+	 * 添加分类
+	 *
+	 */
+	public function addCate(Request $request){
+
+		$name=Input::get('category');
+		$user_id=Auth::id();
+		$category=new Category;
+		$category->user_id=$user_id;
+		$category->name=$name;
+		$category->save();
+		return redirect('/category')->withInput();
+	}
+
+	/**
+	 * 删除分类
+	 *
+	 */
+	public function deleteCate($id){
+
+		$category=Category::find($id);
+		$category->delete();
+		return redirect('/category')->withInput();
+
+	}
+
 
 }

@@ -24,6 +24,10 @@ Route::group(['middleware' =>'auth'], function()
     Route::get('/blog', 'home\HomeController@blog');
     Route::post('/deliverBlog', 'home\HomeController@deliverBlog');
     Route::get('/personal', 'home\HomeController@personal');
+    Route::get('/comment', 'home\HomeController@comment');
+    Route::get('/category', 'home\HomeController@category');
+    Route::post('/addCate', 'home\HomeController@addCate');
+    Route::get('/deleteCate/{id}', 'home\HomeController@deleteCate');
 
 });
 
