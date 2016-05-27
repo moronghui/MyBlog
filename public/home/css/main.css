@@ -88,7 +88,7 @@ a:hover{ color: #f00; }
 .cate_detail .add{ padding: 10px 30px; }
 .cate_detail .add .cate{ border: 1px solid #ccc; padding: 5px 10px; }
 /*博文评论*/
-.comment_b .title{ background-color: #63b8ff; margin: 20px; font-size: 14px; }
+.comment_b .title{ background-color: #d1eeee; margin: 20px; font-size: 14px; }
 .comment_b .c_item{  padding-bottom: 15px; border-bottom: 1px dotted #ccc; overflow: hidden; margin:20px 30px}
 .comment_b .face{ margin-right: 10px; width: 50px; height: 50px;  }
 .comment_b .c_item .item_r{overflow: hidden; }
@@ -99,3 +99,9 @@ a:hover{ color: #f00; }
 .comment_b .c_item .item_r .flooter{ width: 600px; }
 .comment_b .c_item .item_r .which{ font-weight: bold;color: #4876ff; }
 .comment_b .c_item .item_r .which:hover{ text-decoration: underline; }
+/*发评论*/
+.deliverComment .title{ background-color: #d1eeee; margin: 20px; font-size: 14px; }
+.deliverComment .content{ margin-left: 30px; }
+.deliverComment .comment_t{ padding: 10px 20px; font-size: 14px; border: 1px solid #ccc; margin-top: 10px; margin-bottom: 15px; width: 650px; height: 150px; overflow-y: scroll; }
+.deliverComment .comment_btn{ line-height: 20px; width: 60px; padding-top: 5px; padding-bottom: 5px; font-size: 14px;  }
+.deliverComment .comment_btn:hover{ cursor: pointer; }

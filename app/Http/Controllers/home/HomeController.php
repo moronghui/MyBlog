@@ -41,10 +41,10 @@ class HomeController extends Controller {
 		//获取博文
 		$blog=DB::table('blogs as b')
 		->leftJoin('categories as c','b.category','=','c.id')
-		->leftJoin('comments as com','b.id','=','com.blog_id')
-		->select('b.*','c.name','com.id as comid')
+		->select('b.*','c.name')
 		->where('b.user_id','=',Auth::id())
 		->get();
+
 		//$blog=Blog::where('user_id','=',Auth::id())->get();
 		$data=[
 			'user'=>$user,
@@ -233,6 +233,7 @@ class HomeController extends Controller {
 		->where('blog_user_id','=',Auth::id())
 		->take(10)
 		->get();
+
 		$data=[
 			'user'=>$user,
 			'comment'=>$comment,
@@ -360,7 +361,7 @@ class HomeController extends Controller {
 		$comment=DB::table('comments as c')
 		->leftJoin('users as u','c.user_id','=','u.id')
 		->select('c.content','u.name','c.created_at')
-		->where('blog_user_id','=',Auth::id())
+		->where('blog_id','=',$id)
 		->take(10)
 		->get();
 		$data=[
@@ -370,6 +371,33 @@ class HomeController extends Controller {
 		];
 		return view('home.blogMore',$data);
 	}
+
+	/**
+	 * 发评论
+	 *
+	 */
+	public function deliverComment($id){
+
+		$content=Input::get('comment');
+		$blog_id=$id;
+		$user_id=Auth::id();
+		$blog_user_id=Blog::select('user_id')->where('id','=',$id)->get();
+		$comment=new Comment;
+		$comment->blog_id=$blog_id;
+		$comment->user_id=$user_id;
+		$comment->content=$content;
+		$comment->blog_user_id=$blog_user_id[0]->user_id;
+		$comment->save();
+		//更新相关博文评论条数
+		$blog=Blog::find($id);
+		$num=$blog->comment_num;
+		$blog->comment_num=$num+1;
+		$blog->save();
+
+		return redirect('/blogMore/'.$id)->withInput();
+	}
+
+
 
 
 }

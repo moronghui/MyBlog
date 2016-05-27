@@ -32,6 +32,7 @@ Route::group(['middleware' =>'auth'], function()
     Route::get('/editBlog/{id}', 'home\HomeController@editBlogIndex');
     Route::post('/editBlog/{id}', 'home\HomeController@editBlog');
     Route::get('/blogMore/{id}', 'home\HomeController@blogMore');
+    Route::post('/deliverComment/{id}', 'home\HomeController@deliverComment');
 
 });
 

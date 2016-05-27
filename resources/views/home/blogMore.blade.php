@@ -90,6 +90,20 @@
 						
 			@endif
 		</div>
+		<!-- 发评论 -->
+		<div class="deliverComment">
+			<div class="title">
+				<span>发评论</span>
+			</div>
+			<div class="content">
+				<form action="{{ asset('/deliverComment')}}/{{ $blog[0]->id}}" method="post">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<label>{{ $user->name}}:</label><br>
+					<textarea required="required" name="comment" class="comment_t"></textarea><br>
+					<input type="submit" value="发评论" class="comment_btn">
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 @endsection

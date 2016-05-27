@@ -75,7 +75,7 @@
 						{{ $bg->content}}
 					</article>
 					<div class="flooter">
-						<a href="#">评论</a><span class="num">({{ count($bg->comid)}})</span><a href="{{ asset('/blogMore')}}/{{ $bg->id}}" class="right">查看正文</a>
+						<a href="#">评论</a><span class="num">({{ $bg->comment_num}})</span><a href="{{ asset('/blogMore')}}/{{ $bg->id}}" class="right">查看正文</a>
 					</div>
 				</div> 
 			@endforeach
