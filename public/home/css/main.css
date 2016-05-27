@@ -87,3 +87,15 @@ a:hover{ color: #f00; }
 .cate_detail li a:hover{color:  rgb(62,115,160); text-decoration: underline;}
 .cate_detail .add{ padding: 10px 30px; }
 .cate_detail .add .cate{ border: 1px solid #ccc; padding: 5px 10px; }
+/*博文评论*/
+.comment_b .title{ background-color: #63b8ff; margin: 20px; font-size: 14px; }
+.comment_b .c_item{  padding-bottom: 15px; border-bottom: 1px dotted #ccc; overflow: hidden; margin:20px 30px}
+.comment_b .face{ margin-right: 10px; width: 50px; height: 50px;  }
+.comment_b .c_item .item_r{overflow: hidden; }
+.comment_b .c_item .item_r .username{ margin-bottom: 10px; font-size: 16px; font-weight: bold; color: #8470ff; display: inline-block; margin-right: 10px; }
+.comment_b .c_item .item_r .username:hover{ text-decoration: underline; }
+.comment_b .c_item .delete:hover{color:  rgb(62,115,160);}
+.comment_b .c_item .item_r .contents{ clear: both; padding-left: 10px; margin:10px;  }
+.comment_b .c_item .item_r .flooter{ width: 600px; }
+.comment_b .c_item .item_r .which{ font-weight: bold;color: #4876ff; }
+.comment_b .c_item .item_r .which:hover{ text-decoration: underline; }

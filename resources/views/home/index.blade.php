@@ -69,13 +69,13 @@
 		@else
 			@foreach($blog as $bg)
 				<div class="item">
-					<a href="#" class="title">{{ $bg->title}}</a><span>({{ $bg->created_at}})</span><a href="#">[管理]</a><a href="#">[删除]</a>
+					<a href="#" class="title">{{ $bg->title}}</a><span>({{ $bg->created_at}})</span><a href="{{ asset('/editBlog')}}/{{ $bg->id}}">[编辑]</a><a href="{{ asset('/deleteBlog')}}/{{ $bg->id}}">[删除]</a>
 					<p>标签：<span class="lable">{{ $bg->label}}</span> &nbsp;&nbsp;分类：<span class="cate">{{ $bg->name}}</span></p>
 					<article class="article">
 						{{ $bg->content}}
 					</article>
 					<div class="flooter">
-						<a href="#">评论</a><span class="num">({{ count($bg->comid)}})</span><a href="#" class="right">查看正文</a>
+						<a href="#">评论</a><span class="num">({{ count($bg->comid)}})</span><a href="{{ asset('/blogMore')}}/{{ $bg->id}}" class="right">查看正文</a>
 					</div>
 				</div> 
 			@endforeach

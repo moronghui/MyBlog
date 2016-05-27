@@ -295,5 +295,81 @@ class HomeController extends Controller {
 
 	}
 
+	/**
+	 * 删除博文
+	 *
+	 */
+	public function deleteBlog($id){
+		$blog=Blog::find($id);
+		$blog->delete();
+		return redirect('/')->withInput();
+	}
+
+	/**
+	 * 编辑博文页面
+	 *
+	 */
+	public function editBlogIndex($id){
+		
+		$blog=Blog::find($id);
+		$category=Category::where('user_id','=',Auth::id())->get();
+		$user=User::find(Auth::id());
+		$data=[
+			'user'=>$user,
+			'category'=>$category,
+			'blog'=>$blog,
+		];
+		return view('home.editBlog',$data);
+	}
+
+	/**
+	 * 编辑博文
+	 *
+	 */
+	public function editBlog($id){
+		
+		$title=Input::get('title');
+		$label=Input::get('label');
+		$user_id=Auth::id();
+		$category=Input::get('category');
+		$content=Input::get('content');
+		$blog=Blog::find($id);
+		$blog->title=$title;
+		$blog->label=$label;
+		$blog->content=$content;
+		$blog->user_id=$user_id;
+		$blog->category=$category;
+		$blog->save();
+		return redirect('/')->withInput();
+	}
+	
+	/**
+	 * 查看博文正文页面
+	 *
+	 */
+	public function blogMore($id){
+		
+		//获取博文
+		$blog=DB::table('blogs as b')
+		->leftJoin('categories as c','b.category','=','c.id')
+		->leftJoin('comments as com','b.id','=','com.blog_id')
+		->select('b.*','c.name','com.id as comid')
+		->where('b.id','=',$id)
+		->get();
+		$user=User::find(Auth::id());
+		$comment=DB::table('comments as c')
+		->leftJoin('users as u','c.user_id','=','u.id')
+		->select('c.content','u.name','c.created_at')
+		->where('blog_user_id','=',Auth::id())
+		->take(10)
+		->get();
+		$data=[
+			'user'=>$user,
+			'blog'=>$blog,
+			'comment'=>$comment,
+		];
+		return view('home.blogMore',$data);
+	}
+
 
 }

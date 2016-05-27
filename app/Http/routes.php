@@ -28,6 +28,10 @@ Route::group(['middleware' =>'auth'], function()
     Route::get('/category', 'home\HomeController@category');
     Route::post('/addCate', 'home\HomeController@addCate');
     Route::get('/deleteCate/{id}', 'home\HomeController@deleteCate');
+    Route::get('/deleteBlog/{id}', 'home\HomeController@deleteBlog');
+    Route::get('/editBlog/{id}', 'home\HomeController@editBlogIndex');
+    Route::post('/editBlog/{id}', 'home\HomeController@editBlog');
+    Route::get('/blogMore/{id}', 'home\HomeController@blogMore');
 
 });
 
