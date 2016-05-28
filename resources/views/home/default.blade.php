@@ -17,8 +17,8 @@
 	<div class="nav right" >
 		<ul>
 			<li><a href="{{ asset('/')}}">首页</a></li>
-			<li><a href="{{ asset('/lists')}}">博文目录</a></li>
-			<li><a href="{{ asset('/blog')}}">发博文</a></li>
+			<li><a href="{{ asset('/blog/lists')}}">博文目录</a></li>
+			<li><a href="{{ asset('/blog/blog')}}">发博文</a></li>
 			<li><a href="{{ asset('/personal')}}">个人中心</a></li>
 		</ul>
 	</div>
