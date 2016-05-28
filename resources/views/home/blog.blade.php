@@ -4,7 +4,7 @@
 	<div class="head">
 		<span class="left">发博文</span>
 	</div>
-	<form action="{{ asset('/deliverBlog')}}" method="POST" class="form">
+	<form action="{{ asset('/blog/deliverBlog')}}" method="POST" class="form">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<label for="title" class="title_l">标题：</label>
 		<input type="text" name="title" class="title" id="title" required="required" /><br><br>

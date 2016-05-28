@@ -4,6 +4,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\User;
+use DB;
+use App\Blog;
+use App\Category;
+use Input;
+use App\Comment;
+use Auth;
 
 class BlogController extends Controller {
 
@@ -39,7 +46,7 @@ class BlogController extends Controller {
 	 *
 	 * 
 	 */
-	public function blog()
+	public function index()
 	{
 		//
 		$category=Category::where('user_id','=',Auth::id())->get();
@@ -150,7 +157,7 @@ class BlogController extends Controller {
 		$user=User::find(Auth::id());
 		$comment=DB::table('comments as c')
 		->leftJoin('users as u','c.user_id','=','u.id')
-		->select('c.content','u.name','c.created_at')
+		->select('c.*','u.name','c.created_at')
 		->where('blog_id','=',$id)
 		->take(10)
 		->orderBy('c.created_at','desc')

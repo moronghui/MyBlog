@@ -6,7 +6,7 @@
 		<div class="data">
 			<div class="title">
 				<span class="left">个人资料</span>
-				<span class="right"><a href="{{ asset('/profile')}}">[管理]</a></span>
+				<span class="right"><a href="{{ asset('/personal/profile')}}">[管理]</a></span>
 			</div>
 			<div class="img">
 				<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>" alt="头像">
@@ -27,7 +27,7 @@
 		<div class="comment">
 			<div class="title">
 				<span class="left">评论</span>
-				<span class="right"><a href="#">[管理]</a></span>
+				<span class="right"><a href="{{ asset('/comment/comment')}}">[管理]</a></span>
 			</div>
 			@if(count($comment)==0)
 				<p style="margin-left:25px;">暂时没有评论！</p>
@@ -55,7 +55,7 @@
 		<div class="category">
 			<div class="title">
 				<span class="left">分类</span>
-				<span class="right"><a href="#">[管理]</a></span>
+				<span class="right"><a href="{{ asset('/category/category')}}">[管理]</a></span>
 			</div>
 			@if(count($category)==0)
 				<p style="margin-left:25px;">您还没添加分类！</p>

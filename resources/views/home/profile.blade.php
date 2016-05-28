@@ -3,7 +3,7 @@
 <center>
 <div class="profile comWidth">
 	<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>">
-	<form class="" enctype="multipart/form-data" method="post" name="upform" action="{{ URL('/upform') }}">  
+	<form class="" enctype="multipart/form-data" method="post" name="upform" action="{{ asset('/personal/upform') }}">  
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -14,7 +14,7 @@
 	</form>
 
 
-	<form class="" action="{{URL('/updata')}}" method="POST">
+	<form class="" action="{{ asset('/personal/updata')}}" method="POST">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<table>
 			<tr>

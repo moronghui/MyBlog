@@ -18,7 +18,7 @@
 						<a href="#" class="username">{{ $com->name}}</a>对您的博文发表了评论
 						</div> 
 						<div class="right">
-							<span class="right"><a href="#" class="delete">[删除]</a></span>
+							<span class="right"><a href="{{ asset('/comment/delete')}}/{{ $com->id}}" class="delete">[删除]</a></span>
 							<span class="right">{{ $com->created_at}}</span>
 						</div>
 					</div> 

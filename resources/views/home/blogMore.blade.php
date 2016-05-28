@@ -81,7 +81,7 @@
 					</div> 
 					<p class="contents">{{ $com->content}}</p>
 					<div class="left flooter">
-							<span class="right"><a href="#" class="delete">[删除]</a></span>
+							<span class="right"><a href="{{ asset('/comment/delete')}}/{{ $com->id}}" class="delete">[删除]</a></span>
 							<span class="left">{{ $com->created_at}}</span>
 					</div>
 				</div>
@@ -96,7 +96,7 @@
 				<span>发评论</span>
 			</div>
 			<div class="content">
-				<form action="{{ asset('/deliverComment')}}/{{ $blog[0]->id}}" method="post">
+				<form action="{{ asset('/comment/deliver')}}/{{ $blog[0]->id}}" method="post">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<label>{{ $user->name}}:</label><br>
 					<textarea required="required" name="comment" class="comment_t"></textarea><br>
