@@ -14,7 +14,7 @@
 			<ul>
 				<li><a href="#">全部博文</a>({{ count($blog)}})</li>
 				@foreach($category as $cate)
-					<li><a href="#">{{ $cate->name}}</a>({{ count($cate->bid)}})</li>
+					<li><a href="#">{{ $cate->name}}</a>({{ $cate->blog_num}})</li>
 				@endforeach
 			</ul>
 			@endif

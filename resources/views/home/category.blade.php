@@ -17,7 +17,7 @@
 	<ul>
 		<li><a href="#">全部博文</a>({{ count($blog)}})</li>
 		@foreach($category as $cate)
-			<li><a href="#">{{ $cate->name}}</a>({{ count($cate->bid)}})<a href="{{ asset('/deleteCate')}}/{{ $cate->id}}" class="right" style="margin-right:150px;">删除</a></li>
+			<li><a href="#">{{ $cate->name}}</a>({{ $cate->blog_num}})<a href="{{ asset('/deleteCate')}}/{{ $cate->id}}" class="right" style="margin-right:150px;">删除</a></li>
 		@endforeach
 	</ul>
 	@endif

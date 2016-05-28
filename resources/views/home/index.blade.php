@@ -53,7 +53,7 @@
 			<ul>
 				<li><a href="#">全部博文</a>({{ count($blog)}})</li>
 				@foreach($category as $cate)
-					<li><a href="#">{{ $cate->name}}</a>({{ count($cate->bid)}})</li>
+					<li><a href="#">{{ $cate->name}}</a>({{ $cate->blog_num}})</li>
 				@endforeach
 			</ul>
 			@endif
@@ -75,7 +75,7 @@
 						{{ $bg->content}}
 					</article>
 					<div class="flooter">
-						<a href="#">评论</a><span class="num">({{ $bg->comment_num}})</span><a href="{{ asset('/blogMore')}}/{{ $bg->id}}" class="right">查看正文</a>
+						<a href="{{ asset('/blogMore')}}/{{ $bg->id}}">评论</a><span class="num">({{ $bg->comment_num}})</span><a href="{{ asset('/blogMore')}}/{{ $bg->id}}" class="right">查看正文</a>
 					</div>
 				</div> 
 			@endforeach

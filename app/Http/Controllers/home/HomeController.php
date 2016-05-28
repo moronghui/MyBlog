@@ -27,8 +27,7 @@ class HomeController extends Controller {
 		//获取分类
 		//$category=Category::where('user_id','=',Auth::id())->get();
 		$category=DB::table('categories as c')
-		->leftJoin('blogs as b','c.id','=','b.category')
-		->select('c.*','b.id as bid')
+		->select('c.*')
 		->where('c.user_id','=',Auth::id())
 		->get();
 		//获取评论
@@ -36,13 +35,15 @@ class HomeController extends Controller {
 		->leftJoin('users as u','c.user_id','=','u.id')
 		->select('c.content','u.name','c.created_at')
 		->where('blog_user_id','=',Auth::id())
-		->take(10)
+		->take(5)
+		->orderBy('c.created_at','desc')
 		->get();
 		//获取博文
 		$blog=DB::table('blogs as b')
 		->leftJoin('categories as c','b.category','=','c.id')
 		->select('b.*','c.name')
 		->where('b.user_id','=',Auth::id())
+		->orderBy('b.created_at','desc')
 		->get();
 
 		//$blog=Blog::where('user_id','=',Auth::id())->get();
@@ -109,75 +110,7 @@ class HomeController extends Controller {
 		return redirect('/profile');
 	}
 
-	/**
-	 * 博文目录
-	 *
-	 * @return Response
-	 */
-	public function lists()
-	{
-		//
-		$user=User::find(Auth::id());
-		$category=DB::table('categories as c')
-		->leftJoin('blogs as b','c.id','=','b.category')
-		->select('c.*','b.id as bid')
-		->where('c.user_id','=',Auth::id())
-		->get();
-		$blog=DB::table('blogs as b')
-		->leftJoin('categories as c','b.category','=','c.id')
-		->leftJoin('comments as com','b.id','=','com.blog_id')
-		->select('b.*','c.name','com.id as comid')
-		->where('b.user_id','=',Auth::id())
-		->get();
-		$data=[
-			'user'=>$user,
-			'category'=>$category,
-			'blog'=>$blog,
-		];
-		return view('home.lists',$data);
-	}
-
-	/**
-	 * 发表博文页面
-	 *
-	 * 
-	 */
-	public function blog()
-	{
-		//
-		$category=Category::where('user_id','=',Auth::id())->get();
-		$user=User::find(Auth::id());
-		$data=[
-			'user'=>$user,
-			'category'=>$category,
-		];
-		return view('home.blog',$data);
-	}
-
-	/**
-	 * 发表博文
-	 */
-	public function deliverBlog(Request $request)
-	{
-		//
-	/*	$this->validate($request,[
-			'title'=>'required',
-			'content'=>'required',
-			]);*/
-		$title=Input::get('title');
-		$label=Input::get('label');
-		$user_id=Auth::id();
-		$category=Input::get('category');
-		$content=Input::get('content');
-		$blog=new Blog;
-		$blog->title=$title;
-		$blog->label=$label;
-		$blog->content=$content;
-		$blog->user_id=$user_id;
-		$blog->category=$category;
-		$blog->save();
-		return redirect('/')->withInput();
-	}
+	
 
 	/**
 	 *个人中心
@@ -191,8 +124,7 @@ class HomeController extends Controller {
 		//获取分类
 		//$category=Category::where('user_id','=',Auth::id())->get();
 		$category=DB::table('categories as c')
-		->leftJoin('blogs as b','c.id','=','b.category')
-		->select('c.*','b.id as bid')
+		->select('c.*')
 		->where('c.user_id','=',Auth::id())
 		->get();
 		//获取评论
@@ -200,13 +132,15 @@ class HomeController extends Controller {
 		->leftJoin('users as u','c.user_id','=','u.id')
 		->select('c.content','u.name','c.created_at')
 		->where('blog_user_id','=',Auth::id())
-		->take(10)
+		->take(5)
+		->orderBy('c.created_at','desc')
 		->get();
 		//获取博文
 		$blog=DB::table('blogs as b')
 		->leftJoin('categories as c','b.category','=','c.id')
 		->select('b.*','c.name')
 		->where('b.user_id','=',Auth::id())
+		->orderBy('b.created_at','desc')
 		->get();
 		//$blog=Blog::where('user_id','=',Auth::id())->get();
 		$data=[
@@ -229,9 +163,10 @@ class HomeController extends Controller {
 		//获取评论
 		$comment=DB::table('comments as c')
 		->leftJoin('users as u','c.user_id','=','u.id')
-		->select('c.content','u.name','c.created_at')
+		->leftJoin('blogs as b','c.blog_id','=','b.id')
+		->select('c.content','b.title','u.name','c.created_at')
 		->where('blog_user_id','=',Auth::id())
-		->take(10)
+		->orderBy('c.created_at','desc')
 		->get();
 
 		$data=[
@@ -251,8 +186,7 @@ class HomeController extends Controller {
 		//获取分类
 		//$category=Category::where('user_id','=',Auth::id())->get();
 		$category=DB::table('categories as c')
-		->leftJoin('blogs as b','c.id','=','b.category')
-		->select('c.*','b.id as bid')
+		->select('c.*')
 		->where('c.user_id','=',Auth::id())
 		->get();
 		//获取博文
@@ -296,81 +230,7 @@ class HomeController extends Controller {
 
 	}
 
-	/**
-	 * 删除博文
-	 *
-	 */
-	public function deleteBlog($id){
-		$blog=Blog::find($id);
-		$blog->delete();
-		return redirect('/')->withInput();
-	}
-
-	/**
-	 * 编辑博文页面
-	 *
-	 */
-	public function editBlogIndex($id){
-		
-		$blog=Blog::find($id);
-		$category=Category::where('user_id','=',Auth::id())->get();
-		$user=User::find(Auth::id());
-		$data=[
-			'user'=>$user,
-			'category'=>$category,
-			'blog'=>$blog,
-		];
-		return view('home.editBlog',$data);
-	}
-
-	/**
-	 * 编辑博文
-	 *
-	 */
-	public function editBlog($id){
-		
-		$title=Input::get('title');
-		$label=Input::get('label');
-		$user_id=Auth::id();
-		$category=Input::get('category');
-		$content=Input::get('content');
-		$blog=Blog::find($id);
-		$blog->title=$title;
-		$blog->label=$label;
-		$blog->content=$content;
-		$blog->user_id=$user_id;
-		$blog->category=$category;
-		$blog->save();
-		return redirect('/')->withInput();
-	}
 	
-	/**
-	 * 查看博文正文页面
-	 *
-	 */
-	public function blogMore($id){
-		
-		//获取博文
-		$blog=DB::table('blogs as b')
-		->leftJoin('categories as c','b.category','=','c.id')
-		->leftJoin('comments as com','b.id','=','com.blog_id')
-		->select('b.*','c.name','com.id as comid')
-		->where('b.id','=',$id)
-		->get();
-		$user=User::find(Auth::id());
-		$comment=DB::table('comments as c')
-		->leftJoin('users as u','c.user_id','=','u.id')
-		->select('c.content','u.name','c.created_at')
-		->where('blog_id','=',$id)
-		->take(10)
-		->get();
-		$data=[
-			'user'=>$user,
-			'blog'=>$blog,
-			'comment'=>$comment,
-		];
-		return view('home.blogMore',$data);
-	}
 
 	/**
 	 * 发评论

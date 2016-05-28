@@ -72,8 +72,8 @@ a:hover{ color: #f00; }
 .blog .submit{ height: 30px; width: 200px; font-size: 18px; text-align: center; box-shadow: 2px 2px 0px #ccc; border: 1px solid #ccc;border-radius: 5px; }
 /*评论详情*/
 .comment_detail,.cate_detail{ background-color: #fff; padding:5px 30px; padding-bottom: 30px; }
-.comment_detail .title,.cate_detail .title{font-size: 18px; font-weight: bold; line-height: 30px; padding:5px 10px 30px;}
-.comment_detail .c_item{ overflow: hidden; font-size: 14px; border-bottom: 1px dotted #ccc; padding-bottom: 20px;}
+.comment_detail .title{font-size: 18px; font-weight: bold; line-height: 30px; }
+.comment_detail .c_item{ padding-top: 20px; overflow: hidden; font-size: 14px; border-bottom: 1px dotted #ccc; padding-bottom: 20px;}
 .comment_detail .c_item .face{ margin-right: 10px; width: 50px; height: 50px; }
 .comment_detail .c_item .item_r{ width: 880px; overflow: hidden; }
 .comment_detail .c_item .item_r .username{ margin-bottom: 10px; font-size: 18px; font-weight: bold; color: #8470ff; display: inline-block; margin-right: 10px; }
@@ -85,6 +85,7 @@ a:hover{ color: #f00; }
 /*分类管理*/
 .cate_detail li{ font-size: 14px; padding: 10px 30px; border-bottom: 1px dotted #ccc; display: block;overflow: hidden;}
 .cate_detail li a:hover{color:  rgb(62,115,160); text-decoration: underline;}
+.cate_detail .title{font-size: 18px; font-weight: bold; line-height: 30px; padding: 5px 10px 30px;}
 .cate_detail .add{ padding: 10px 30px; }
 .cate_detail .add .cate{ border: 1px solid #ccc; padding: 5px 10px; }
 /*博文评论*/
