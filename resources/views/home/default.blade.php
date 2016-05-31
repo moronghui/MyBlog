@@ -6,12 +6,16 @@
 <meta name="description" content="博客">
 <link rel="stylesheet" type="text/css" href="{{ asset('/home/css/main.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/home/css/reset.css')}}">
+<script type="text/javascript" src="{{ asset('/home/js/jquery-1.8.2.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/home/js/jquery.form.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/home/js/main.js')}}"></script>
+</script>
 <title>博客</title>
 
 <body>
 <div class="comWidth header">
 	<div class="info">
-		<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>" alt="头像">
+		<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>" alt="头像" />
 		<p><a href="{{ asset('/')}}">{{ $user->name}}的博客</a></p>
 	</div>
 	<div class="nav right" >
