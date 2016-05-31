@@ -53,13 +53,13 @@ class PersonalController extends Controller {
 			'comment'=>$comment,
 			'blog'=>$blog,
 		];
-		return view('home.personal.index',$data);
+		return view('home.personal',$data);
 	}
 
 	public function profile(){
 		//获取用户详细信息
 		$user=User::find(Auth::id());
-		return view('home.personal.profile',['user'=>$user]);
+		return view('home.profile',['user'=>$user]);
 	}
 
 	/**
