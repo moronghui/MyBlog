@@ -38,7 +38,7 @@ class BlogController extends Controller {
 			'category'=>$category,
 			'blog'=>$blog,
 		];
-		return view('home.lists',$data);
+		return view('home.blog.lists',$data);
 	}
 
 	/**
@@ -55,7 +55,7 @@ class BlogController extends Controller {
 			'user'=>$user,
 			'category'=>$category,
 		];
-		return view('home.blog',$data);
+		return view('home.blog.index',$data);
 	}
 
 	/**
@@ -117,7 +117,7 @@ class BlogController extends Controller {
 			'category'=>$category,
 			'blog'=>$blog,
 		];
-		return view('home.editBlog',$data);
+		return view('home.blog.editBlog',$data);
 	}
 
 	/**
@@ -167,7 +167,7 @@ class BlogController extends Controller {
 			'blog'=>$blog,
 			'comment'=>$comment,
 		];
-		return view('home.blogMore',$data);
+		return view('home.blog.blogMore',$data);
 	}
 
 }

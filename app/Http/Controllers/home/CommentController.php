@@ -37,7 +37,7 @@ class CommentController extends Controller {
 			'user'=>$user,
 			'comment'=>$comment,
 		];
-		return view('home.comment',$data);
+		return view('home.comment.index',$data);
 	}
 
 	/**

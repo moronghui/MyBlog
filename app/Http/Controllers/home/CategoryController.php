@@ -41,7 +41,7 @@ class CategoryController extends Controller {
 			'category'=>$category,
 			'blog'=>$blog,
 		];
-		return view('home.category',$data);
+		return view('home.category.index',$data);
 	}
 
 	/**
