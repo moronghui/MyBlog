@@ -84,7 +84,7 @@ class PersonalController extends Controller {
 		$user->sex=$sex;
 		$user->save();
 
-		return view('home.profile',['user'=>$user]);
+		return view('home.personal.profile',['user'=>$user]);
 	}
 
 	/**

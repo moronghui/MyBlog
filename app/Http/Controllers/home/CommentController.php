@@ -72,8 +72,12 @@ class CommentController extends Controller {
 	public function delete($id){
 
 		$comment=Comment::find($id);
+		$blog_id=$comment->blog_id;
 		$comment->delete();
 
+		$blog=Blog::find($blog_id);
+		$blog->comment_num--;
+		$blog->save();
 		return redirect()->back()->withInput();
 
 	}

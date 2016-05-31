@@ -4,7 +4,7 @@
 	<div class="head">
 		<span class="left">发博文</span>
 	</div>
-	<form action="{{ asset('/blog/editBlog')}}/{{ $blog->id}}" method="POST" class="form">
+	<form action="{{ asset('/blog/edit')}}/{{ $blog->id}}" method="POST" class="form">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<label for="title" class="title_l">标题：</label>
 		<input type="text" name="title" class="title" id="title" required="required" value="<?php if(isset($blog)) echo $blog->title; ?>" /><br><br>
@@ -20,7 +20,7 @@
 		<label for="label">标签：</label>
 		<input type="text" name="label" class="label" id="label" value="<?php if(isset($blog)) echo $blog->label; ?>" />
 		<textarea name="content" class="content" required="required"><?php if(isset($blog)) echo $blog->content; ?></textarea><br>
-		<div class="div"><input type="submit" value="发表" class="submit"></div>
+		<div class="div"><input type="submit" value="修改" class="submit"></div>
 
 	</form>
 </div>

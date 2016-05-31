@@ -52,7 +52,7 @@
 			<span class="left">正文</span>
 		</div>
 		<div class="item" style="border:none">
-			<a href="#" class="title">{{ $blog[0]->title}}</a><span>({{ $blog[0]->created_at}})</span><a href="{{ asset('/editBlog')}}/{{ $blog[0]->id}}">[编辑]</a><a href="{{ asset('/deleteBlog')}}/{{ $blog[0]->id}}">[删除]</a>
+			<a href="#" class="title">{{ $blog[0]->title}}</a><span>({{ $blog[0]->created_at}})</span><a href="{{ asset('/edit')}}/{{ $blog[0]->id}}">[编辑]</a><a href="{{ asset('/delete')}}/{{ $blog[0]->id}}">[删除]</a>
 			<p>标签：<span class="lable">{{ $blog[0]->label}}</span> &nbsp;&nbsp;分类：<span class="cate">{{ $blog[0]->name}}</span></p>
 			<article class="article">
 				{{ $blog[0]->content}}

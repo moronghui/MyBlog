@@ -4,6 +4,7 @@
 <div class="profile comWidth">
 	<img src="<?php echo $user->face?asset('/uploads/'.$user->face) :asset('/uploads/default.jpg') ?>">
 	<form class="" enctype="multipart/form-data" method="post" name="upform" action="{{ asset('/personal/upform') }}">  
+	<br>>
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 

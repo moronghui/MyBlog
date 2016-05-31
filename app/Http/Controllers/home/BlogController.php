@@ -61,7 +61,7 @@ class BlogController extends Controller {
 	/**
 	 * 发表博文
 	 */
-	public function deliverBlog(Request $request)
+	public function deliver(Request $request)
 	{
 		//
 	/*	$this->validate($request,[
@@ -90,7 +90,7 @@ class BlogController extends Controller {
 	 * 删除博文
 	 *
 	 */
-	public function deleteBlog($id){
+	public function delete($id){
 		$blog=Blog::find($id);
 		$blog_cate=$blog->category;
 		//修改相关分类总数
@@ -107,7 +107,7 @@ class BlogController extends Controller {
 	 * 编辑博文页面
 	 *
 	 */
-	public function editBlogIndex($id){
+	public function editIndex($id){
 		
 		$blog=Blog::find($id);
 		$category=Category::where('user_id','=',Auth::id())->get();
@@ -124,7 +124,7 @@ class BlogController extends Controller {
 	 * 编辑博文
 	 *
 	 */
-	public function editBlog($id){
+	public function edit($id){
 		
 		$title=Input::get('title');
 		$label=Input::get('label');

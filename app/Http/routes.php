@@ -27,10 +27,10 @@ Route::group(['middleware' =>'auth','prefix'=>'blog'], function(){
 
     Route::get('lists', 'home\BlogController@lists');
     Route::get('index', 'home\BlogController@index');
-    Route::post('deliverBlog', 'home\BlogController@deliverBlog');
-    Route::get('deleteBlog/{id}', 'home\BlogController@deleteBlog');
-    Route::get('editBlog/{id}', 'home\BlogController@editBlogIndex');
-    Route::post('editBlog/{id}', 'home\BlogController@editBlog');
+    Route::post('deliver', 'home\BlogController@deliver');
+    Route::get('delete/{id}', 'home\BlogController@delete');
+    Route::get('edit/{id}', 'home\BlogController@editIndex');
+    Route::post('edit/{id}', 'home\BlogController@edit');
     Route::get('blogMore/{id}', 'home\BlogController@blogMore');
 });
 
