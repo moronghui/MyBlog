@@ -95,7 +95,7 @@ class PersonalController extends Controller {
 	public function face(Request $request)
 	{
 		//
-		$face=Input::file("Filedata");
+		$face=Input::file("face");
 		if (is_file($face)) {
 
 			$clientName = $face->getClientOriginalName();
@@ -106,10 +106,7 @@ class PersonalController extends Controller {
 			$user=User::find(Auth::id());
 			$user->face=$newName;
 			$user->save();
-
-			return '{"status":"1","fileName":'.$newName.'}';
 		}
-		return '{"status":"0"}';
 		return redirect('/personal/profile');
 	}
 
